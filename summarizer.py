@@ -4,7 +4,6 @@ from os import listdir
 import math
 import sys
 import operator
-# import gensim
 import string
 from nltk.tokenize import sent_tokenize
 from nltk.corpus import stopwords
@@ -28,7 +27,6 @@ def tokenize_ru(file_text):
 
     return tokens
 
-
 def normalize_tokens(tokens):
     normalized_tokens= []
     if sys.argv[3] == "v1":
@@ -40,14 +38,6 @@ def normalize_tokens(tokens):
             normalized = porter.stem(token)
             normalized_tokens.append(normalized)
     return normalized_tokens
-
-def get_result_file():
-    if sys.argv[2] == "v1":
-        file = open("result_dict_v1.txt", "w", encoding='utf-8')
-        return file
-    else:
-        file = open("result_dict_v2.txt", "w", encoding='utf-8')
-        return file
 
 def fill_dict(tokens):
     dictionary = {}
