@@ -108,8 +108,8 @@ def compute_sentences_score(sent_tokens, tf_idf):
     for sent in sent_tokens:
         for word in sent:
             if word in tf_idf.keys():
-                if word in dictionary:
-                    score[str(sent)] =  tf_idf[word]
+                if str(sent) in score:
+                    score[str(sent)] +=  tf_idf[word]
                 else:
                     score[str(sent)] =  tf_idf[word]
     return score
